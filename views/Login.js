@@ -10,12 +10,15 @@ const Login = () => {
 	const navigation = useNavigation();
 
 	const login = async () => {
+		if (email === '' || password === '') {
+			return alert('Favor de llenar todos los campos');
+		}
+
 		const response = await auth({ email, password });
 		if (!response) {
 			alert('El usuario no existe');
 		} else {
 			response.forEach((doc) => {
-				console.log(doc.id, ' => ', doc.data());
 				navigation.navigate('Home');
 			});
 		}

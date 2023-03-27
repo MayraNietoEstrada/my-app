@@ -14,7 +14,7 @@ export async function auth({ email, password }) {
 	if (querySnapshot._docs.length === 0) {
 		return false;
 	} else {
-    return querySnapshot;
+    return querySnapshot._docs;
 		
 	}
 }
